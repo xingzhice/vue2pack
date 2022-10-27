@@ -5,7 +5,6 @@ import _ from 'lodash'
 import router from '@/router';
 //递归遍历路由参数
 const allAstyncRou = (asyncRoutes,routes) =>{
-  console.log(routes);
   return asyncRoutes.filter((item)=>{
     if(routes.indexOf(item.name)!=-1){
       if(item.children&&item.children.length>0){

@@ -62,23 +62,41 @@ export const asyncRoutes = [
   {
     path: '/acl',
     component: Layout,
-    name:'Acl',
+    name: 'Acl',
     redirect: '/acl/user',
     meta: { title: '权限管理', icon: 'el-icon-s-platform' },
     children: [
       //用户管理
       {
         name: 'User',
-        path: '/acl/user',
+        path: '/user',
         component: () => import('@/views/acl/user/index'),
         meta: { title: '用户管理', icon: 'el-icon-s-release' },
       },
       //角色管理
       {
         name: 'Role',
-        path: '/acl/name',
-        component: () => import('@/views/acl/name/index'),
+        path: '/role',
+        component: () => import('@/views/acl/role/index'),
         meta: { title: '角色管理', icon: 'el-icon-s-data' }
+      },
+      //菜单管理
+      {
+        name: 'Permission',
+        path: '/permission',
+        component: () => import('@/views/acl/permission/index'),
+        meta: { title: '菜单管理', icon: 'el-icon-platform-eleme' }
+      },
+      //角色授权
+      {
+        name: 'RoleAuth',
+        path: '/role/auth/:id',
+        component: () => import('@/views/acl/role/roleAuth'),
+        meta: {
+          activeMenu: '/role',
+          title: '角色授权'
+        },
+        hidden: true 
       },
     ]
   },
@@ -86,7 +104,7 @@ export const asyncRoutes = [
   {
     path: '/product',
     component: Layout,
-    name:'Product',
+    name: 'Product',
     redirect: '/product/trademark',
     meta: { title: '商品管理', icon: 'el-icon-film' },
     children: [
@@ -102,7 +120,7 @@ export const asyncRoutes = [
         name: 'Sku',
         path: '/product/sku',
         component: () => import('@/views/product/sku/index'),
-        meta: { title: 'SKU管理模块', icon: 'el-icon-watch-1' }
+        meta: { title: 'SKU管理', icon: 'el-icon-watch-1' }
       },
     ]
   },
